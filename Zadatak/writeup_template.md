@@ -39,17 +39,23 @@ You're reading it!
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
-TODO: Add your text here!!!
+In `calibration.py`, I computed the camera calibration matrix and distortion coefficients using a series of chessboard calibration images located in the `camera_cal` folder. 
+- **Corner Detection:** The `cv2.findChessboardCorners()` function was used to locate internal chessboard corners.
+- **Matrix Calculation:** Object points (3D points in real-world space) and image points (2D points on the image plane) were accumulated and passed to `cv2.calibrateCamera()` to obtain the camera matrix and distortion coefficients.
+- **Distortion Correction:** Using `cv2.undistort()`, these parameters were applied to correct lens distortion, generating verified results such as `undistort_output.png`.
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
-TODO: Add your text here!!!
+To demonstrate the distortion correction, I applied the camera matrix and distortion coefficients obtained from the chessboard calibration to a raw road image using `cv2.undistort()`. This removes radial and tangential lens distortion, ensuring that straight lines (like lane markings) maintain their geometric accuracy across the frame. An example of this correction can be found in our saved outputs.
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-TODO: Add your text here!!!
+In `step2_preprocessing.py`, I implemented the initial image preprocessing pipeline:
+- **Grayscale Conversion:** The image is converted to grayscale using `cv2.cvtColor()` to reduce dimensionality and simplify processing.
+- **Gaussian Noise Reduction:** A Gaussian Blur filter (with a 5x5 kernel) is applied to smooth out high-frequency noise and minor irregularities.
+- **Region of Interest (ROI) Masking:** A polygonal mask representing the road ahead is defined using `cv2.fillPoly()` and combined via `cv2.bitwise_and()` to isolate the target road area and eliminate irrelevant background elements (sky, trees, and surrounding traffic).
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
