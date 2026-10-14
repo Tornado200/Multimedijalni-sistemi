@@ -65,11 +65,16 @@ In `step3_perspective.py`, I performed the perspective transformation to obtain 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-TODO: Add your text here!!!
+- **Histogram & Sliding Windows**: A histogram is computed across the lower half of the bird's-eye view binary image to locate the base peaks of the left and right lane lines.
+- **Window Search**: Implements a sliding window mechanism (9 windows with an optimized margin of 120 pixels and a minimum pixel threshold of 35) to track lane pixels vertically.
+- **Polynomial Fitting**: Fits a second-order polynomial ($x = ay^2 + by + c$) to the detected pixel clusters for both left and right lane boundaries.
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-TODO: Add your text here!!!
+- **Real-World Metrics Conversion**: Converts pixels to meters using standard scaling factors ($30 / 720$ meters per pixel vertically and $3.7 / 700$ meters horizontally).
+- **Radius of Curvature**: Calculates the radius of curvature in meters for both lane lines at the evaluation point closest to the vehicle.
+- **Vehicle Offset**: Computes the horizontal displacement of the vehicle from the center of the lane.
+- **Inverse Perspective Mapping (IPM) & Overlay**: Projects the detected lane area (green polygon) and boundaries back onto the original undistorted image using the inverse perspective transformation matrix (`Minv`).
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
