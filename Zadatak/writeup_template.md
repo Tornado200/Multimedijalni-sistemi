@@ -59,7 +59,9 @@ In `step2_preprocessing.py`, I implemented the initial image preprocessing pipel
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-TODO: Add your text here!!!
+In `step3_perspective.py`, I performed the perspective transformation to obtain a top-down "birds-eye view" of the road:
+- **Source and Destination Points:** I selected four source points (`src`) forming a trapezoid along the straight lane lines and mapped them to rectangular destination points (`dst`).
+- **Matrix Computation & Warping:** Using `cv2.getPerspectiveTransform(src, dst)`, the transformation matrix was calculated, and `cv2.warpPerspective()` was applied to rectify the binary image. This simplifies lane detection by transforming perspective convergence into parallel lines.
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
