@@ -1,7 +1,8 @@
 import sys
 import cv2
 import numpy as np
-from common import find_lane_pixels, robust_fit, get_src_dst, OUT, REF_W
+from common import (find_lane_pixels, robust_fit, get_src_dst, undistort,
+                    OUT, REF_W, LANE_WIDTH_M, LANE_WIDTH_PX)
 
 
 def measure_curvature_and_draw(original_image_path, warped_image_path):
@@ -11,6 +12,7 @@ def measure_curvature_and_draw(original_image_path, warped_image_path):
         print("Error: Could not load images for step 5.")
         return None
 
+    original_img = undistort(original_img)
     _, binary = cv2.threshold(warped_img, 127, 255, cv2.THRESH_BINARY)
 
     leftx, lefty, rightx, righty, _ = find_lane_pixels(binary)
@@ -25,7 +27,7 @@ def measure_curvature_and_draw(original_image_path, warped_image_path):
     right_fit, right_mask = robust_fit(righty, rightx, thresh)
 
     ym_per_pix = 30 / h
-    xm_per_pix = 3.7 / (700 * w / REF_W)
+    xm_per_pix = LANE_WIDTH_M / (LANE_WIDTH_PX * w / REF_W)
 
     ploty = np.linspace(0, h - 1, h)
     y_eval = np.max(ploty)

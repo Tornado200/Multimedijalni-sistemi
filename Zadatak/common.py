@@ -1,11 +1,29 @@
 import os
 import cv2
 import numpy as np
+import pickle
 
 OUT = 'output_images'
 os.makedirs(OUT, exist_ok=True)
 
 REF_W = 1280
+REF_H = 720
+LANE_WIDTH_M = 3.7
+LANE_WIDTH_PX = 569
+
+_CALIBRATION = None
+
+
+def undistort(img):
+    global _CALIBRATION
+    if img.shape[1] != REF_W or img.shape[0] != REF_H:
+        return img
+    if _CALIBRATION is None:
+        with open('calibration.p', 'rb') as f:
+            _CALIBRATION = pickle.load(f)
+    mtx = _CALIBRATION['mtx']
+    dist = _CALIBRATION['dist']
+    return cv2.undistort(img, mtx, dist, None, mtx)
 
 
 def get_src_dst(w, h):

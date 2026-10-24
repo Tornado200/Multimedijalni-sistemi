@@ -1,7 +1,7 @@
 import sys
 import cv2
 import numpy as np
-from common import OUT, get_src_dst
+from common import OUT, get_src_dst, undistort
 
 
 def process_image(image_path):
@@ -9,6 +9,8 @@ def process_image(image_path):
     if img is None:
         print(f"Error: Could not load image from {image_path}")
         return None
+
+    img = undistort(img)
 
     hls = cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
     h_channel = hls[:, :, 0]

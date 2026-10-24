@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/undistort_output.jpg "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
+[image2]: ./examples/undistort_road.jpg "Road Transformed"
 [image3]: ./output_images/output_binary.jpg "Binary Example"
 [image4]: ./output_images/output_warped.jpg "Warp Example"
 [image5]: ./output_images/output_fit.jpg "Fit Visual"
@@ -38,7 +38,7 @@ You're reading it!
 | File | Purpose |
 |---|---|
 | `calibration.py` | Step 1: camera calibration (run once) |
-| `common.py` | Shared code: source/destination points, sliding-window search, RANSAC polynomial fit |
+| `common.py` | Shared code: undistortion, constants, source/destination points, sliding-window search, RANSAC polynomial fit |
 | `step2_preprocessing.py` | Step 2: color thresholding into a binary image |
 | `step3_perspective.py` | Step 3: perspective transform (birds-eye view) |
 | `step4_lane_fit.py` | Step 4: lane-pixel detection and polynomial fit |
@@ -56,10 +56,10 @@ python3 calibration.py
 python3 step2_preprocessing.py test_images/test1.jpg
 python3 step3_perspective.py test_images/test1.jpg
 python3 step4_lane_fit.py output_images/output_warped.jpg
-python3 step5_curvature_and_draw.py test_images/test1.jpg 
+python3 step5_curvature_and_draw.py test_images/test1.jpg output_images/output_warped.jpg
 ```
 
-Replace `test_images/test1.jpg` with any other road image. Step 4 reads the output of step 3, and step 5 reads the original image together with the output of step 3. Step 3 calls step 2 internally, so running step 3 alone is enough to produce both the binary and the warped image. All results are written to `output_images/`.
+`calibration.py` has to be run first, because it creates `calibration.p`, which the other steps load to undistort the images. Replace `test_images/test1.jpg` with any other road image. Step 4 reads the output of step 3, and step 5 reads the original image together with the output of step 3. Step 3 calls step 2 internally, so running step 3 alone is enough to produce both the binary and the warped image. All results are written to `output_images/`.
 
 ### Camera Calibration
 
@@ -84,17 +84,17 @@ The camera matrix and distortion coefficients are computed from the chessboard i
 
 #### 1. Provide an example of a distortion-corrected image.
 
-The calibration from the previous section produces `calibration.p`, and `cv2.undistort()` with these parameters removes the radial and tangential lens distortion (see the corrected chessboard image above).
+The saved calibration is applied to every road image by `undistort()` in `common.py`. It is called at the beginning of step 2 (before thresholding) and in step 5 (before the lane is drawn), so the thresholding, the perspective transform and the final overlay all work on the same corrected geometry. Images that are not 1280x720 come from a different camera and are returned unchanged, because the calibration is valid only for the camera that took the chessboard images.
 
-The single-image pipeline below operates directly on the road images from `test_images/`. Applying the saved calibration to the road images is not part of the current scripts.
+The example below shows `test1.jpg` before (left) and after (right) the correction. The effect is most visible near the image borders, for example on the car hood and the barrier.
 
-![Road][image2]
+![Road Transformed][image2]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 **File:** `step2_preprocessing.py`, function `process_image()`
 
-The image is converted to the HLS color space and two color masks are combined with a logical OR:
+The image is first undistorted, then converted to the HLS color space, and two color masks are combined with a logical OR:
 
 - **White lines:** lightness `L >= 190`.
 - **Yellow lines:** hue between 15 and 35, saturation `S >= 80` and lightness `L >= 60`.
@@ -107,7 +107,6 @@ Gradient (Sobel) thresholds were tried first, but they picked up barriers, road 
 **Output:** `output_images/output_binary.jpg`, a black and white image in which white pixels are lane-line candidates.
 
 ![Binary][image3]
-
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -132,7 +131,6 @@ Gradient (Sobel) thresholds were tried first, but they picked up barriers, road 
 
 ![Warped][image4]
 
-
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 **Files:** `step4_lane_fit.py`, function `find_lane_pixels_and_fit()`; helpers `find_lane_pixels()` and `robust_fit()` in `common.py`
@@ -147,14 +145,13 @@ Gradient (Sobel) thresholds were tried first, but they picked up barriers, road 
 
 ![Fit][image5]
 
-
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 **File:** `step5_curvature_and_draw.py`, function `measure_curvature_and_draw()`
 
 The step repeats the pixel search and RANSAC fit of step 4 on the warped image and then:
 
-- **Pixels to meters:** `ym_per_pix = 30 / h` (the visible road section is assumed to be about 30 m long) and `xm_per_pix = 3.7 / (700 * w / 1280)` (a lane is assumed to be 3.7 m wide and about 700 px wide in the birds-eye view). New polynomials are fitted in meters on the inlier pixels.
+- **Pixels to meters:** `ym_per_pix = 30 / h` (the visible road section is assumed to be about 30 m long). The horizontal scale is `xm_per_pix = 3.7 / (569 * w / 1280)`: a lane is 3.7 m wide, and 569 px is the lane width measured in the birds-eye view of `straight_lines1.jpg` and `straight_lines2.jpg` (572 and 566 px) with the same code that is used for detection. `LANE_WIDTH_PX` is defined in `common.py`. New polynomials are fitted in meters on the inlier pixels.
 - **Radius of curvature:** `R = (1 + (2Ay + B)^2)^(3/2) / |2A|` is evaluated at the bottom of the image for both lines and averaged. A small epsilon avoids a division by zero on a perfectly straight line.
 - **Vehicle offset:** the camera is assumed to be mounted at the center of the car, so the offset is the difference between the image center and the lane center at the bottom of the image, converted to meters. A negative value means the vehicle is left of the center.
 
@@ -163,17 +160,17 @@ The step repeats the pixel search and RANSAC fit of step 4 on the warped image a
 **Output (console), for `test1.jpg`:**
 
 ```
-Radius of Curvature: 1225.16 m
-Vehicle offset from center: -0.18 m
+Radius of Curvature: 1251.67 m
+Vehicle offset from center: -0.21 m
 ```
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 **File:** `step5_curvature_and_draw.py` (same function as above)
 
-The area between the two fitted curves is filled green in the birds-eye view, warped back onto the road image with `cv2.warpPerspective()` and the inverse matrix `Minv` (built from the same points as in step 3), and blended with the original image using `cv2.addWeighted()`. The radius of curvature and the vehicle offset are written on top of the image.
+The area between the two fitted curves is filled green in the birds-eye view, warped back onto the undistorted road image with `cv2.warpPerspective()` and the inverse matrix `Minv` (built from the same points as in step 3), and blended with it using `cv2.addWeighted()`. The radius of curvature and the vehicle offset are written on top of the image.
 
-**Output:** `output_images/output_final.jpg`. For `test1.jpg` the radius of curvature is 1225.16 m and the vehicle is 0.18 m left of center.
+**Output:** `output_images/output_final.jpg`. For `test1.jpg` the radius of curvature is 1251.67 m and the vehicle is 0.21 m left of center.
 
 ![Output][image6]
 
@@ -187,7 +184,6 @@ TODO: Add your text here!!!
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-
 **Problems faced**
 
 - **Noisy binary image.** The first version combined Sobel gradients with S-channel and lightness thresholds. It also picked up the concrete barrier, road seams, shadows and the edges of other cars, and these pixels pulled the fitted curves away from the lane. Switching to white/yellow color thresholds and restricting the region of interest to the same trapezoid as the perspective transform removed most of this noise.
@@ -200,14 +196,12 @@ TODO: Add your text here!!!
 - Strong shadows, glare or faded and worn lane markings, where the color thresholds miss the line or pick up non-lane pixels.
 - Sharp curves, where a line leaves the source trapezoid, and hills, where the flat-road assumption of the perspective transform does not hold.
 - Lane changes, other vehicles directly in front of the car, and roads with no or unusual markings.
-- Images from a different camera (different field of view and horizon), because the source trapezoid is fixed.
-- The meter conversion is approximate. It assumes a fixed lane width of about 700 px in the birds-eye view, but the transformed lane is wider, so the radius and the offset have a systematic error.
+- Images from a different camera (different field of view and horizon), because the source trapezoid is fixed and the calibration is valid only for the camera that took the chessboard images.
+- The meter conversion is approximate. The horizontal scale comes from a lane width measured once on straight test images, and the vertical scale assumes about 30 m of visible road. On a dashed right line the extrapolation to the bottom of the image is less reliable, so the offset (for example 0.77 m on `test4.jpg`) and the radius are less certain than on images with two solid lines.
 
 **How to make it more robust**
 
-- Apply the saved camera calibration to every road image before thresholding.
 - Combine the color thresholds with a gradient threshold, and use adaptive thresholds (for example CLAHE on the lightness channel) for shadows and different lighting.
 - On video, smooth the polynomial coefficients over several frames, search around the previous fit instead of restarting with a histogram, and reject frames that fail sanity checks (lane width, parallel lines, sudden curvature change).
-- Measure the lane width in the birds-eye view to compute the horizontal scale instead of using a fixed value.
+- Measure the lane width in every frame from the detected lines instead of using a value measured once, so the scale adapts to the camera and the road.
 - Save intermediate images as PNG, or pass them between steps as arrays.
-
