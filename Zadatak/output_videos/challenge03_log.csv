@@ -1,0 +1,301 @@
+frame,accepted,reason,left_px,right_px,width_px,width_diff_m
+0,1,ok,2231,41417,554,-0.15
+1,1,left line copied from right,1441,32986,,
+2,1,left line copied from right,1111,32429,,
+3,1,left line copied from right,950,32882,,
+4,1,left line copied from right,866,33010,,
+5,1,left line copied from right,854,33054,,
+6,1,left line copied from right,942,34918,,
+7,1,left line copied from right,1235,36219,,
+8,1,left line copied from right,1441,35997,,
+9,1,left line copied from right,1421,35131,,
+10,1,left line copied from right,1097,33513,,
+11,1,left line copied from right,903,34247,,
+12,1,left line copied from right,671,34430,,
+13,1,left line copied from right,622,35417,,
+14,1,left line copied from right,612,35300,,
+15,1,left line copied from right,536,36050,,
+16,1,left line copied from right,544,35612,,
+17,1,left line copied from right,495,35318,,
+18,1,left line copied from right,477,38358,,
+19,1,left line copied from right,430,36732,,
+20,1,left line copied from right,271,35728,,
+21,1,left line copied from right,150,35081,,
+22,1,left line copied from right,10779,63875,6332,-34.69
+23,1,left line copied from right,55669,65578,-1442,8.36
+24,1,left line copied from right,54195,66221,297,-1.04
+25,1,left line copied from right,53195,65014,-1398,8.23
+26,1,left line copied from right,51521,63447,-605,4.92
+27,1,left line copied from right,51692,65582,-1311,7.9
+28,1,left line copied from right,48261,66570,-590,4.57
+29,1,left line copied from right,46212,66100,-581,4.96
+30,1,left line copied from right,3417,43780,13878,-77.07
+31,1,left line copied from right,3684,42440,,
+32,1,left line copied from right,2576,42671,,
+33,1,left line copied from right,2174,42681,,
+34,1,left line copied from right,2312,46397,,
+35,1,left line copied from right,1526,47538,,
+36,1,left line copied from right,738,46212,,
+37,1,left line copied from right,34623,54109,-512,3.28
+38,1,left line copied from right,35199,53275,167,0.82
+39,1,left line copied from right,241,37981,560,1.01
+40,1,ok,352,35363,622,0.65
+41,1,ok,411,32920,606,0.96
+42,1,ok,467,32030,602,0.84
+43,1,left line copied from right,883,31526,610,1.62
+44,1,left line copied from right,1366,30375,599,1.58
+45,1,left line copied from right,1313,28250,605,2.17
+46,1,left line copied from right,1344,27068,604,1.98
+47,1,left line copied from right,1385,25789,618,2.45
+48,1,left line copied from right,1215,24426,651,1.57
+49,1,ok,1212,23906,623,0.69
+50,1,ok,1398,24499,626,0.62
+51,1,ok,1584,24291,674,-0.14
+52,1,ok,1871,24796,666,-0.27
+53,1,ok,2104,24934,653,-0.31
+54,1,left line copied from right,3100,22794,590,-1.69
+55,1,left line copied from right,3180,21341,588,-1.68
+56,1,ok,3365,19875,587,0.85
+57,1,ok,4358,18151,577,0.56
+58,1,left line copied from right,4939,17092,576,-4.24
+59,1,left line copied from right,4569,13720,577,-4.66
+60,1,left line copied from right,3227,12486,572,-4.8
+61,1,left line copied from right,2271,11851,,
+62,1,left line copied from right,2468,12249,,
+63,1,left line copied from right,2667,12594,,
+64,1,left line copied from right,2903,12957,,
+65,1,left line copied from right,3032,13630,,
+66,1,left line copied from right,3186,15073,,
+67,1,left line copied from right,3171,16560,,
+68,1,left line copied from right,3176,17717,,
+69,1,left line copied from right,3083,18945,,
+70,1,left line copied from right,3007,19896,,
+71,1,left line copied from right,2848,21204,,
+72,1,left line copied from right,2632,22592,,
+73,1,left line copied from right,2447,23428,,
+74,1,left line copied from right,2396,24041,,
+75,1,left line copied from right,2545,24316,,
+76,1,left line copied from right,2325,24257,,
+77,1,left line copied from right,2167,24204,,
+78,1,left line copied from right,2339,23825,,
+79,1,left line copied from right,2344,24150,,
+80,1,left line copied from right,2361,23444,,
+81,1,left line copied from right,2324,23297,,
+82,1,left line copied from right,2261,23462,,
+83,1,left line copied from right,2202,23078,,
+84,1,left line copied from right,2326,22588,,
+85,1,left line copied from right,2409,23075,,
+86,1,left line copied from right,2417,23035,,
+87,1,left line copied from right,2397,22889,,
+88,1,left line copied from right,2425,22630,,
+89,1,left line copied from right,2431,22515,,
+90,1,left line copied from right,2369,21700,,
+91,1,left line copied from right,2324,21775,,
+92,1,left line copied from right,2236,19505,,
+93,1,left line copied from right,2110,16466,,
+94,1,left line copied from right,2031,15998,,
+95,1,left line copied from right,1943,15676,,
+96,1,left line copied from right,1883,15148,,
+97,1,left line copied from right,1799,14778,,
+98,1,left line copied from right,1729,14553,,
+99,1,left line copied from right,1675,14261,,
+100,1,left line copied from right,1674,13853,,
+101,1,left line copied from right,1655,13490,,
+102,1,left line copied from right,1616,13206,,
+103,1,left line copied from right,1603,12798,,
+104,1,left line copied from right,1572,12389,,
+105,1,left line copied from right,1564,11825,,
+106,1,left line copied from right,1558,11351,,
+107,1,left line copied from right,1572,11009,,
+108,1,left line copied from right,1590,10542,,
+109,1,left line copied from right,1610,10083,,
+110,1,left line copied from right,1612,9802,,
+111,1,left line copied from right,1625,9423,,
+112,1,left line copied from right,1644,9004,,
+113,1,left line copied from right,1690,8645,,
+114,1,left line copied from right,1756,8241,,
+115,1,left line copied from right,1794,7864,,
+116,1,left line copied from right,1846,7687,,
+117,1,left line copied from right,1866,7506,,
+118,1,left line copied from right,1899,7258,,
+119,1,left line copied from right,1948,7097,568,2.32
+120,1,left line copied from right,4555,6903,555,2.28
+121,1,right line copied from left,6699,6548,556,2.37
+122,1,right line copied from left,6596,6283,556,3.07
+123,1,left line copied from right,5882,6091,552,3.36
+124,1,right line copied from left,11380,5988,514,3.58
+125,1,right line copied from left,13815,5878,539,3.93
+126,1,right line copied from left,15893,5773,532,4.5
+127,1,right line copied from left,18708,5663,540,4.9
+128,1,right line copied from left,19551,5222,548,5.04
+129,1,right line copied from left,20492,4755,549,4.79
+130,1,right line copied from left,21264,4385,550,5.08
+131,1,right line copied from left,22935,3943,548,4.93
+132,1,right line copied from left,21686,3614,547,4.89
+133,1,right line copied from left,21306,3267,546,4.91
+134,1,right line copied from left,21440,2946,,
+135,1,right line copied from left,21481,2654,,
+136,1,right line copied from left,22332,2378,,
+137,1,right line copied from left,22585,2125,,
+138,1,right line copied from left,23201,1903,,
+139,1,right line copied from left,23712,1681,,
+140,1,right line copied from left,23866,1497,,
+141,1,right line copied from left,24462,1320,,
+142,1,right line copied from left,24527,1179,,
+143,1,right line copied from left,24970,1030,,
+144,1,right line copied from left,26285,913,,
+145,1,right line copied from left,29754,790,,
+146,1,right line copied from left,31680,682,,
+147,1,right line copied from left,33272,593,,
+148,1,right line copied from left,35246,472,,
+149,1,right line copied from left,36085,389,,
+150,1,right line copied from left,36915,297,,
+151,1,right line copied from left,36129,223,,
+152,1,right line copied from left,36047,169,,
+153,1,right line copied from left,21613,14926,-67,-0.03
+154,1,right line copied from left,21165,14481,-90,-0.1
+155,1,right line copied from left,20725,14351,76,-0.92
+156,1,right line copied from left,19505,13011,97,-0.28
+157,1,right line copied from left,18596,13143,63,-0.28
+158,1,right line copied from left,17212,11849,30,-0.21
+159,1,right line copied from left,16335,10616,308,1.47
+160,1,right line copied from left,15426,10485,149,0.38
+161,1,right line copied from left,14581,10762,80,0.72
+162,1,right line copied from left,14328,10285,21,-1.3
+163,1,right line copied from left,14052,10067,55,-0.0
+164,1,right line copied from left,14199,10031,71,-0.02
+165,1,right line copied from left,14050,9378,33,-1.9
+166,1,right line copied from left,14168,9151,48,-1.22
+167,1,right line copied from left,13512,8285,77,0.18
+168,1,right line copied from left,13517,6589,314,5.49
+169,1,right line copied from left,13566,6022,270,5.22
+170,1,right line copied from left,12517,5124,500,19.33
+171,1,right line copied from left,11282,4135,499,23.59
+172,1,right line copied from left,11003,3673,255,8.57
+173,1,right line copied from left,10444,2710,250,5.56
+174,1,right line copied from left,9072,1847,246,16.71
+175,1,right line copied from left,7905,1135,253,15.71
+176,1,right line copied from left,7232,944,276,1.26
+177,0,line not found,6196,566,,
+178,0,line not found,5365,570,,
+179,0,line not found,4560,591,,
+180,0,line not found,3999,707,,
+181,0,line not found,3302,726,,
+182,0,line not found,2644,740,,
+183,0,line not found,2151,770,,
+184,0,line not found,1697,779,,
+185,0,line not found,1315,807,,
+186,0,line not found,874,842,,
+187,0,bad width,5492,8130,-769,4.27
+188,0,bad width,7134,6647,230,-1.44
+189,1,left line copied from right,8320,8643,-169,0.99
+190,0,bad width,5321,5424,5,1.43
+191,0,bad width,5753,5710,1,-0.13
+192,0,bad width,5143,5125,4,0.15
+193,0,bad width,4970,4968,3,0.93
+194,0,bad width,4719,4717,0,-0.18
+195,0,bad width,3325,9423,126,-9.51
+196,0,line not found,3040,3040,,
+197,0,line not found,3134,3052,,
+198,1,right line copied from left,16974,16460,79,-0.12
+199,1,right line copied from left,21146,19552,-62,0.12
+200,0,bad width,23423,26624,13,0.21
+201,0,bad width,24502,22672,149,-0.6
+202,1,right line copied from left,20887,19360,-84,0.34
+203,1,right line copied from left,23119,20595,-103,0.19
+204,1,right line copied from left,19625,16436,-99,0.14
+205,1,right line copied from left,15229,9729,1100,-1.94
+206,0,bad width,12011,33257,1548,-2.08
+207,0,bad width,19570,41017,1185,-6.88
+208,0,bad width,14987,38271,1319,-5.47
+209,0,bad width,25660,31888,1197,-6.38
+210,0,bad width,24854,27607,1182,-3.54
+211,1,right line copied from left,34466,27332,1144,-3.26
+212,1,right line copied from left,22416,388,,
+213,0,line not found,28008,1548,,
+214,0,line not found,27461,2468,,
+215,0,line not found,26509,2864,,
+216,0,line not found,26569,2730,,
+217,0,line not found,31093,2505,,
+218,1,left line copied from right,26148,39220,-431,-3.55
+219,0,bad width,27253,5669,-228,12.6
+220,0,bad width,28103,7245,-392,3.45
+221,0,bad width,30907,7358,-210,3.17
+222,0,bad width,32193,7515,-104,2.83
+223,0,bad width,33014,7961,-101,3.16
+224,1,left line copied from right,37682,43714,-413,-4.52
+225,0,bad width,29767,12586,94,2.23
+226,1,right line copied from left,29992,12521,542,1.14
+227,1,ok,25976,12898,681,0.13
+228,1,ok,23023,14745,639,0.09
+229,1,right line copied from left,25535,16750,579,-2.47
+230,0,bad width,34623,16678,209,2.65
+231,0,bad width,31787,16660,133,0.75
+232,0,bad width,32194,16136,316,0.39
+233,1,right line copied from left,30217,15152,607,11.0
+234,1,right line copied from left,28807,14509,610,10.19
+235,1,right line copied from left,25429,14870,609,1.38
+236,1,right line copied from left,31359,11242,612,6.06
+237,1,right line copied from left,37733,8254,586,4.6
+238,0,bad width,36411,7803,241,7.84
+239,1,right line copied from left,35615,9429,596,1.34
+240,0,bad width,36711,7249,211,2.05
+241,0,bad width,36753,9178,195,1.92
+242,0,bad width,35432,9592,96,2.27
+243,0,bad width,32185,10691,-307,3.53
+244,0,bad width,28393,12500,-3,2.4
+245,1,left line copied from right,88630,107968,-22,0.5
+246,1,ok,11209,23557,591,0.27
+247,1,ok,8434,28942,587,0.34
+248,1,ok,6608,28356,604,0.11
+249,1,ok,5097,28731,599,0.61
+250,1,ok,4353,30426,625,0.85
+251,1,left line copied from right,3358,35737,634,1.08
+252,1,left line copied from right,1450,42063,,
+253,1,left line copied from right,1424,48424,,
+254,1,left line copied from right,4036,41970,625,1.98
+255,1,left line copied from right,7008,41281,627,2.06
+256,1,left line copied from right,8433,39688,622,2.26
+257,1,ok,11064,39241,646,0.13
+258,1,ok,12787,40674,639,-0.48
+259,1,left line copied from right,16554,38136,613,1.28
+260,1,left line copied from right,17987,35492,625,2.66
+261,1,left line copied from right,15133,32972,652,3.11
+262,1,left line copied from right,13844,28943,639,4.76
+263,1,left line copied from right,10392,25511,621,-6.59
+264,1,left line copied from right,2758,21774,641,11.44
+265,1,left line copied from right,2623,18950,619,9.99
+266,1,left line copied from right,3422,16915,603,10.29
+267,1,left line copied from right,2998,14665,596,14.14
+268,1,left line copied from right,4764,12621,593,13.66
+269,1,right line copied from left,5939,10297,,
+270,1,left line copied from right,5177,8390,586,-12.16
+271,1,left line copied from right,2208,6949,593,-2.07
+272,1,right line copied from left,1964,5125,,
+273,1,left line copied from right,1712,4203,,
+274,1,left line copied from right,1480,3474,,
+275,1,left line copied from right,1116,3911,,
+276,1,left line copied from right,759,4686,,
+277,1,ok,681,5622,577,-0.34
+278,1,ok,2137,6807,583,-0.34
+279,0,not parallel,2687,7841,734,11.32
+280,1,left line copied from right,2904,8620,598,5.05
+281,1,left line copied from right,3304,9666,628,6.24
+282,1,left line copied from right,3217,10335,742,6.94
+283,1,left line copied from right,4209,11546,705,5.6
+284,1,left line copied from right,2110,11919,627,2.6
+285,1,left line copied from right,2635,11662,631,6.55
+286,1,left line copied from right,4260,10821,636,8.38
+287,1,left line copied from right,2632,10234,603,5.71
+288,1,left line copied from right,3480,9419,606,12.83
+289,1,right line copied from left,5066,8711,,
+290,1,right line copied from left,5997,7230,,
+291,1,right line copied from left,4757,6364,,
+292,1,right line copied from left,2147,6161,,
+293,1,right line copied from left,2198,6283,,
+294,1,right line copied from left,2541,6091,,
+295,1,right line copied from left,3003,5936,,
+296,1,right line copied from left,3277,5427,,
+297,1,right line copied from left,3302,4946,,
+298,1,right line copied from left,4145,5066,,
+299,1,right line copied from left,4734,4680,,

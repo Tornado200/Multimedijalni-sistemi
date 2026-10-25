@@ -4,14 +4,7 @@ import numpy as np
 from common import OUT, get_src_dst, undistort
 
 
-def process_image(image_path):
-    img = cv2.imread(image_path)
-    if img is None:
-        print(f"Error: Could not load image from {image_path}")
-        return None
-
-    img = undistort(img)
-
+def binarize(img, camera='A', roi=True):
     hls = cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
     h_channel = hls[:, :, 0]
     l_channel = hls[:, :, 1]
@@ -23,11 +16,24 @@ def process_image(image_path):
     combined_binary = np.zeros(l_channel.shape, dtype=np.uint8)
     combined_binary[white | yellow] = 255
 
+    if not roi:
+        return combined_binary
+
     h, w = img.shape[:2]
-    src, _ = get_src_dst(w, h)
+    src, _ = get_src_dst(w, h, camera)
     mask = np.zeros_like(combined_binary)
     cv2.fillPoly(mask, [src.astype(np.int32)], 255)
-    masked_binary = cv2.bitwise_and(combined_binary, mask)
+    return cv2.bitwise_and(combined_binary, mask)
+
+
+def process_image(image_path):
+    img = cv2.imread(image_path)
+    if img is None:
+        print(f"Error: Could not load image from {image_path}")
+        return None
+
+    img = undistort(img)
+    masked_binary = binarize(img)
 
     output_path = f'{OUT}/output_binary.jpg'
     cv2.imwrite(output_path, masked_binary)

@@ -26,7 +26,7 @@ def undistort(img):
     return cv2.undistort(img, mtx, dist, None, mtx)
 
 
-def get_src_dst(w, h):
+def get_src_dst(w, h, camera='A'):
     src = np.float32([
         [w * 0.40, h * 0.63],
         [w * 0.60, h * 0.63],
